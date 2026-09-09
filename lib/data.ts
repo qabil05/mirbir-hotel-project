@@ -1,0 +1,258 @@
+export type Room = {
+  id: string;
+  name: string;
+  guests: number;
+  size: number;
+  price: number;
+  image: string;
+  images: { src: string; alt: string; side: string }[];
+  alt: string;
+  blurb: string;
+  long: string;
+  aspect: string;
+  amenities: string[];
+};
+
+export type StayPackage = {
+  id: string;
+  name: string;
+  kind: string;
+  summary: string;
+  priceHint: string;
+  note: string;
+  mult: number;
+  includes: string[];
+  cancelDays: number;
+};
+
+export const rooms: Room[] = [
+  {
+    id: "boathouse",
+    name: "The Boathouse",
+    guests: 2,
+    size: 44,
+    price: 365,
+    image: "/images/boathouse.jpg",
+    images: [
+      { src: "/images/boathouse.jpg", alt: "Boathouse bedroom facing open water", side: "Sea" },
+      { src: "/images/boathouse-deck.jpg", alt: "Timber deck at the waterline", side: "Deck" },
+      { src: "/images/sunset.jpg", alt: "The jetty at dusk below the boathouse", side: "Jetty" },
+      { src: "/images/bathroom.jpg", alt: "Stone bath", side: "Bath" },
+    ],
+    alt: "Timber boathouse bedroom with windows at sea height",
+    blurb: "Sleep at the waterline. The window is the cove.",
+    long: "A timber room set on the old boat slip. At night the water is louder than the house. Two people, one bed, almost no furniture on purpose.",
+    aspect: "sea",
+    amenities: ["King bed", "Water-level window", "Rain shower", "Espresso", "Direct jetty path"],
+  },
+  {
+    id: "olive-suite",
+    name: "The Olive Suite",
+    guests: 2,
+    size: 58,
+    price: 420,
+    image: "/images/olive-suite.jpg",
+    images: [
+      { src: "/images/olive-suite.jpg", alt: "Olive Suite opening onto terrace and trees", side: "Room" },
+      { src: "/images/olive-detail.jpg", alt: "Linen and olive-wood headboard in morning light", side: "Bed" },
+      { src: "/images/olive-terrace.jpg", alt: "Olive terrace table with a sea glimpse", side: "Terrace" },
+      { src: "/images/bathroom.jpg", alt: "Stone soaking tub", side: "Bath" },
+    ],
+    alt: "Olive Suite bedroom opening onto a stone terrace and olive trees",
+    blurb: "A quiet suite for two, opening onto olives and a thin line of sea.",
+    long: "Lime plaster, linen, and a terrace that catches the last of the afternoon. The Olive Suite is the smallest room on the hill and the one guests ask to return to.",
+    aspect: "grove",
+    amenities: ["King bed", "Private terrace", "Rain shower", "Espresso", "Air cooling", "Sea glimpse"],
+  },
+  {
+    id: "garden-villa",
+    name: "Garden Villa",
+    guests: 3,
+    size: 82,
+    price: 590,
+    image: "/images/garden-villa.jpg",
+    images: [
+      { src: "/images/garden-villa.jpg", alt: "Garden Villa courtyard with reflecting pool", side: "Court" },
+      { src: "/images/garden-living.jpg", alt: "Sitting room opening to the courtyard", side: "Sitting" },
+      { src: "/images/olive-detail.jpg", alt: "Bedroom linen in the garden villa", side: "Bed" },
+      { src: "/images/breakfast.jpg", alt: "Breakfast above the groves", side: "Grove" },
+    ],
+    alt: "Garden Villa courtyard with daybed, reflecting pool, and jasmine",
+    blurb: "A walled courtyard, a still pool, and enough room to stay in.",
+    long: "The villa turns inward: a courtyard of stone and jasmine, a shallow pool, and a sitting room that never needs the sea to feel complete.",
+    aspect: "court",
+    amenities: ["King bed", "Sofa bed", "Courtyard pool", "Outdoor daybed", "Bathtub", "Kitchenette"],
+  },
+  {
+    id: "cypress-house",
+    name: "Cypress House",
+    guests: 3,
+    size: 94,
+    price: 710,
+    image: "/images/cypress.jpg",
+    images: [
+      { src: "/images/cypress.jpg", alt: "Cypress House terrace looking over the hills", side: "Terrace" },
+      { src: "/images/cypress-bed.jpg", alt: "Cypress House bedroom with an arched door to the terrace", side: "Bed" },
+      { src: "/images/spa.jpg", alt: "Warm stone interior", side: "Inside" },
+      { src: "/images/sunset.jpg", alt: "Hill light at dusk", side: "Hill" },
+    ],
+    alt: "Stone terrace of Cypress House with sofa and hill views",
+    blurb: "High on the ridge. The water is a distant line, the wind is closer.",
+    long: "A house in the cypress, with a terrace that looks inland first. Three can sleep here. Evenings are for the hills, not the bay.",
+    aspect: "ridge",
+    amenities: ["King bed", "Single room", "Hill terrace", "Fireplace", "Bathtub", "Quiet wing"],
+  },
+  {
+    id: "horizon-residence",
+    name: "Sea Horizon Residence",
+    guests: 4,
+    size: 118,
+    price: 820,
+    image: "/images/horizon.jpg",
+    images: [
+      { src: "/images/horizon.jpg", alt: "Horizon living room at blue hour", side: "Dusk" },
+      { src: "/images/horizon-night.jpg", alt: "The same room after dark, facing black water", side: "Night" },
+      { src: "/images/horizon-terrace.jpg", alt: "Sea terrace at blue hour", side: "Terrace" },
+      { src: "/images/pool.jpg", alt: "House pool at dusk", side: "Water" },
+    ],
+    alt: "Horizon Residence living room facing the Aegean at blue hour",
+    blurb: "The living room faces the water. Blue hour is the house's real hour.",
+    long: "A long glass wall, walnut, and the open Aegean. Two bedrooms, a dining table for four, and a terrace that holds the evening.",
+    aspect: "glass",
+    amenities: ["Two bedrooms", "Living room", "Sea terrace", "Soaking tub", "Wine fridge", "Workspace"],
+  },
+  {
+    id: "signature-villa",
+    name: "The Signature Villa",
+    guests: 6,
+    size: 170,
+    price: 1250,
+    image: "/images/signature.jpg",
+    images: [
+      { src: "/images/signature.jpg", alt: "Signature Villa pool cantilevered over the cove", side: "Pool" },
+      { src: "/images/signature-bed.jpg", alt: "Signature bedroom opening to the private pool", side: "Bed" },
+      { src: "/images/horizon-night.jpg", alt: "Night interior looking to the water", side: "Night" },
+      { src: "/images/dining.jpg", alt: "A private table sent from Defne", side: "Table" },
+    ],
+    alt: "Signature Villa with a private infinity pool above an Aegean cove",
+    blurb: "A private terrace and pool, set on the rock above the cove.",
+    long: "The house sits on its own terrace of stone. A private pool, a kitchen, three bedrooms, and a path down to the water.",
+    aspect: "rock",
+    amenities: ["Three bedrooms", "Private pool", "Full kitchen", "Outdoor dining", "Fire pit", "Concierge host"],
+  },
+];
+
+export const packages: StayPackage[] = [
+  {
+    id: "garden",
+    name: "Garden",
+    kind: "Economic",
+    summary: "Room only",
+    priceHint: "18% below listed",
+    note: "The room, housekeeping, and the pool. Breakfast is added at Defne if you want it.",
+    mult: 0.82,
+    includes: ["Room", "Housekeeping", "Pool"],
+    cancelDays: 3,
+  },
+  {
+    id: "cove",
+    name: "Cove",
+    kind: "House",
+    summary: "Breakfast included",
+    priceHint: "Listed nightly rate",
+    note: "Daily breakfast at Defne. Cancel up to 7 days before arrival.",
+    mult: 1,
+    includes: ["Room", "Breakfast", "Pool"],
+    cancelDays: 7,
+  },
+  {
+    id: "olive",
+    name: "Olive",
+    kind: "Luxury",
+    summary: "Breakfast, hammam, sunset table",
+    priceHint: "22% above listed",
+    note: "Breakfast, one hammam hour, and a reserved sunset table.",
+    mult: 1.22,
+    includes: ["Room", "Breakfast", "Hammam hour", "Sunset table"],
+    cancelDays: 14,
+  },
+  {
+    id: "platinum",
+    name: "Platinum",
+    kind: "Full stay",
+    summary: "Meals, hammam, and transfer",
+    priceHint: "52% above listed",
+    note: "Breakfast, daily hammam, Defne dinner, and a private transfer from Dalaman or Bodrum.",
+    mult: 1.52,
+    includes: ["Room", "Breakfast", "Daily hammam", "Dinner at Defne", "Private transfer"],
+    cancelDays: 21,
+  },
+];
+
+export const extras = [
+  { id: "hammam", name: "Extra hammam hour", each: 95, per: "stay" as const },
+  { id: "dinner", name: "Defne dinner", each: 72, per: "adult-night" as const },
+  { id: "transfer", name: "Private transfer", each: 180, per: "stay" as const },
+];
+
+export const TAX = 0.12;
+
+export const nav = [
+  { href: "/stay", label: "Stay" },
+  { href: "/experience", label: "Experience" },
+  { href: "/dining", label: "Dining" },
+  { href: "/wellness", label: "Wellness" },
+  { href: "/journal", label: "Journal" },
+  { href: "/plan", label: "Plan stay" },
+];
+
+export const journal = [
+  {
+    slug: "olive-grove-morning",
+    title: "A morning in the olive grove",
+    dek: "First light, dry grass, and the path that always leads to water.",
+    image: "/images/grove-path.jpg",
+  },
+  {
+    slug: "three-days-aegean",
+    title: "Three days by the Aegean",
+    dek: "Arrive slowly. Eat late. Leave later than planned.",
+    image: "/images/sunset.jpg",
+  },
+  {
+    slug: "architecture-of-quiet",
+    title: "The architecture of quiet",
+    dek: "Stone that holds the cool. Doors that open to the hill, not the road.",
+    image: "/images/corridor.jpg",
+  },
+  {
+    slug: "garden-to-table",
+    title: "From garden to table",
+    dek: "Oil, fish, and a long table that does not hurry.",
+    image: "/images/plated.jpg",
+  },
+  {
+    slug: "summer-after-sunset",
+    title: "Summer after sunset",
+    dek: "Blue hour is the house's real hour.",
+    image: "/images/horizon-terrace.jpg",
+  },
+];
+
+export const gallery = [
+  { src: "/images/hero-cove.jpg", alt: "The cove from the upper terrace", cat: "stay" },
+  { src: "/images/boathouse.jpg", alt: "The Boathouse", cat: "stay" },
+  { src: "/images/olive-suite.jpg", alt: "The Olive Suite", cat: "stay" },
+  { src: "/images/olive-detail.jpg", alt: "Linen and morning light", cat: "stay" },
+  { src: "/images/garden-villa.jpg", alt: "Garden Villa courtyard", cat: "stay" },
+  { src: "/images/cypress.jpg", alt: "Cypress House terrace", cat: "stay" },
+  { src: "/images/horizon.jpg", alt: "Sea Horizon Residence at blue hour", cat: "stay" },
+  { src: "/images/horizon-night.jpg", alt: "Horizon after dark", cat: "stay" },
+  { src: "/images/signature.jpg", alt: "The Signature Villa", cat: "stay" },
+  { src: "/images/bathroom.jpg", alt: "Stone bath", cat: "stay" },
+  { src: "/images/pool.jpg", alt: "The pool at dusk", cat: "wellness" },
+  { src: "/images/spa.jpg", alt: "Hammam room", cat: "wellness" },
+  { src: "/images/dining.jpg", alt: "Dinner at Defne", cat: "dining" },
+  { src: "/images/breakfast.jpg", alt: "Breakfast above the groves", cat: "dining" },
+  { src: "/images/sunset.jpg", alt: "Evening over the jetty", cat: "land" },
+];
