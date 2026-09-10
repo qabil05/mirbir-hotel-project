@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { CaretLeft, CaretRight } from "@phosphor-icons/react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
@@ -55,7 +57,7 @@ export function RoomSides({
           exit={reduce ? undefined : { opacity: 0, x: -18 }}
           transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
         >
-          <img src={current.src} alt={current.alt} className="h-full w-full object-cover" />
+          <Image src={current.src} alt={current.alt} fill sizes="(max-width: 768px) 100vw, 60vw" className="h-full w-full object-cover" loading="lazy" />
         </motion.button>
       </AnimatePresence>
 

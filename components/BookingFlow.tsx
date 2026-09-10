@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -157,7 +158,7 @@ export function BookingFlow() {
                     roomId === r.id ? "border-olive" : "border-ivory/10"
                   }`}
                 >
-                  <img src={r.image} alt="" className="h-20 w-[120px] rounded object-cover" />
+                  <Image src={r.image} alt="" width={120} height={80} sizes="120px" className="h-20 w-[120px] rounded object-cover" loading="lazy" />
                   <span>
                     <strong className="text-ivory">{r.name}</strong>
                     <br />
@@ -245,7 +246,7 @@ export function BookingFlow() {
       </div>
     ) : (
       <div className="overflow-hidden rounded-lg border border-ivory/10 bg-bg-2">
-        <img src={room?.image || "/images/hero-cove.jpg"} alt="" className="h-56 w-full object-cover" />
+        <Image src={room?.image || "/images/hero-cove.jpg"} alt="" width={1400} height={420} sizes="100vw" className="h-56 w-full object-cover" loading="lazy" />
         <div className="p-8">
           <p className="text-[12px] tracking-[0.22em] text-bronze">Reservation confirmed</p>
           <h3 className="mt-3 font-display text-[clamp(32px,5vw,56px)] leading-none">Thank you for choosing MIRBIR</h3>

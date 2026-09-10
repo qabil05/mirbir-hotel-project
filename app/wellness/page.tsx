@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
@@ -19,7 +20,7 @@ export default function WellnessPage() {
       <section className="py-24">
         <div className="mx-auto grid w-[min(1400px,calc(100%-32px))] items-center gap-12 md:w-[min(1400px,calc(100%-48px))] md:grid-cols-[1.1fr_.9fr]">
           <Reveal>
-            <img src="/images/pool.jpg" alt="Infinity pool at dusk" className="h-[360px] w-full rounded-lg object-cover md:h-[560px]" />
+            <Image src="/images/pool.jpg" alt="Infinity pool at dusk" width={1400} height={900} sizes="(max-width: 768px) 100vw, 50vw" className="h-[360px] w-full rounded-lg object-cover md:h-[560px]" loading="lazy" />
           </Reveal>
           <Reveal delay={0.08}>
             <h2 className="font-display text-[clamp(36px,5vw,64px)] leading-[0.95]">The hammam, the pool, the hour with no clock</h2>

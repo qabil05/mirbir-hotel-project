@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 import { PressLink, btnPrimary } from "@/components/Pressable";
@@ -31,12 +32,12 @@ export default function DiningPage() {
             </div>
           </Reveal>
           <Reveal delay={0.08}>
-            <img src="/images/breakfast.jpg" alt="Morning breakfast above olive groves" className="h-[360px] w-full rounded-lg object-cover md:h-[520px]" />
+            <Image src="/images/breakfast.jpg" alt="Morning breakfast above olive groves" width={1400} height={900} sizes="(max-width: 768px) 100vw, 50vw" className="h-[360px] w-full rounded-lg object-cover md:h-[520px]" loading="lazy" />
           </Reveal>
         </div>
       </section>
       <section className="relative min-h-[70dvh] overflow-hidden">
-        <img src="/images/dining.jpg" alt="Evening table at Defne" className="absolute inset-0 h-full w-full object-cover" />
+        <Image src="/images/dining.jpg" alt="Evening table at Defne" fill sizes="100vw" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
         <div className="absolute inset-0 bg-[rgba(18,19,18,0.45)]" />
         <div className="relative z-[1] mx-auto flex min-h-[70dvh] w-[min(1400px,calc(100%-32px))] items-end pb-16 md:w-[min(1400px,calc(100%-48px))]">
           <div>

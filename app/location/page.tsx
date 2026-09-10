@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
@@ -31,7 +32,7 @@ export default function LocationPage() {
             </div>
           </Reveal>
           <Reveal delay={0.08}>
-            <img src="/images/hero-cove.jpg" alt="MIRBIR terraces above the cove" className="h-[360px] w-full rounded-lg object-cover md:h-[560px]" />
+            <Image src="/images/hero-cove.jpg" alt="MIRBIR terraces above the cove" width={1400} height={900} sizes="(max-width: 768px) 100vw, 50vw" className="h-[360px] w-full rounded-lg object-cover md:h-[560px]" loading="lazy" />
           </Reveal>
         </div>
       </section>

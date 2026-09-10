@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 
@@ -27,7 +28,7 @@ export default function ExperiencePage() {
       {scenes.map((s, i) => (
         <section key={s.title} className={`py-20 ${i % 2 ? "bg-bg-2" : ""}`}>
           <div className={`mx-auto grid w-[min(1400px,calc(100%-32px))] items-center gap-10 md:w-[min(1400px,calc(100%-48px))] md:grid-cols-2 ${i % 2 ? "md:[&>div:first-child]:order-2" : ""}`}>
-            <img src={s.img} alt={s.title} className="h-[360px] w-full rounded-lg object-cover md:h-[520px]" />
+            <Image src={s.img} alt={s.title} width={1400} height={900} sizes="(max-width: 768px) 100vw, 50vw" className="h-[360px] w-full rounded-lg object-cover md:h-[520px]" loading="lazy" />
             <div>
               <p className="text-[12px] tracking-[0.22em] text-bronze">{s.n}</p>
               <h2 className="mt-3 font-display text-[clamp(32px,5vw,56px)] leading-[0.95]">{s.title}</h2>

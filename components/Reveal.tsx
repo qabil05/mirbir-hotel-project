@@ -1,7 +1,4 @@
-"use client";
-
-import { motion, useReducedMotion } from "motion/react";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 export function Reveal({
   children,
@@ -12,20 +9,13 @@ export function Reveal({
   className?: string;
   delay?: number;
 }) {
-  const reduce = useReducedMotion();
   return (
-    <motion.div
+    <div
+      data-reveal
+      style={{ "--reveal-delay": `${delay}s` } as CSSProperties}
       className={className}
-      initial={reduce ? false : { opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.22 }}
-      transition={{
-        duration: 0.7,
-        delay,
-        ease: [0.16, 1, 0.3, 1],
-      }}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }

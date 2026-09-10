@@ -1,20 +1,15 @@
-"use client";
-
-import { useState } from "react";
+import Image from "next/image";
 import { Hero } from "@/components/Hero";
-import { Lightbox } from "@/components/Lightbox";
 import { PressLink, btnGhost, btnPrimary } from "@/components/Pressable";
 import { Reveal } from "@/components/Reveal";
-import { StayFinder } from "@/components/StayFinder";
+import { HomeStayFinder } from "@/components/HomeStayFinder";
 import { StayHoverCard } from "@/components/StayHoverCard";
-import { ZoomImage } from "@/components/ZoomImage";
+import { CinematicImage } from "@/components/CinematicImage";
 import { journal, rooms } from "@/lib/data";
 
 const featured = rooms;
 
 export default function HomePage() {
-  const [open, setOpen] = useState<{ src: string; alt: string } | null>(null);
-
   return (
     <main id="main">
       <Hero />
@@ -22,7 +17,7 @@ export default function HomePage() {
       <section id="finder" className="border-b border-ivory/10 bg-bg-2 py-10">
         <div className="mx-auto w-[min(1400px,calc(100%-32px))] md:w-[min(1400px,calc(100%-48px))]">
           <p className="mb-4 text-[12px] tracking-[0.2em] text-muted">Your stay</p>
-          <StayFinder hidePackages />
+          <HomeStayFinder />
         </div>
       </section>
 
@@ -42,16 +37,16 @@ export default function HomePage() {
         </div>
         <div className="mx-auto mt-16 grid w-[min(1400px,calc(100%-32px))] gap-4 md:w-[min(1400px,calc(100%-48px))] md:grid-cols-[1.4fr_.8fr]">
           <Reveal>
-            <ZoomImage src="/images/corridor.jpg" alt="Stone corridor opening to a courtyard of light" className="h-[420px] w-full rounded-lg md:h-[640px]" onOpen={(src, alt) => setOpen({ src, alt })} />
+            <CinematicImage src="/images/corridor.jpg" alt="Stone corridor opening to a courtyard of light" className="h-[420px] w-full rounded-lg md:h-[640px]" />
           </Reveal>
           <Reveal delay={0.1} className="md:mt-24">
-            <ZoomImage src="/images/coffee.jpg" alt="Morning coffee on a stone terrace among olive trees" className="h-[320px] w-full rounded-lg md:h-[420px]" onOpen={(src, alt) => setOpen({ src, alt })} />
+            <CinematicImage src="/images/coffee.jpg" alt="Morning coffee on a stone terrace among olive trees" className="h-[320px] w-full rounded-lg md:h-[420px]" />
             <p className="mt-6 max-w-[36ch] text-ivory-soft">Arrive slowly. Stay longer. The quiet side of the Mediterranean.</p>
           </Reveal>
         </div>
       </section>
 
-      <section className="pb-28">
+      <section data-defer-render className="pb-28">
         <div className="mx-auto w-[min(1400px,calc(100%-32px))] md:w-[min(1400px,calc(100%-48px))]">
           <Reveal>
             <h2 className="mb-10 font-display text-[clamp(36px,5vw,64px)] leading-[0.95]">Featured stays</h2>
@@ -67,7 +62,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="pb-28">
+      <section data-defer-render className="pb-28">
         <div className="mx-auto grid w-[min(1400px,calc(100%-32px))] items-center gap-12 md:w-[min(1400px,calc(100%-48px))] md:grid-cols-[1.05fr_.95fr]">
           <Reveal>
             <p className="text-[12px] tracking-[0.22em] text-bronze">Plan your stay</p>
@@ -91,20 +86,20 @@ export default function HomePage() {
             </div>
           </Reveal>
           <Reveal delay={0.08}>
-            <img src="/images/olive-terrace.jpg" alt="Olive Suite terrace above the groves" className="h-[420px] w-full rounded-lg object-cover md:h-[560px]" />
+            <Image src="/images/olive-terrace.jpg" alt="Olive Suite terrace above the groves" width={1400} height={900} sizes="(max-width: 768px) 100vw, 50vw" className="h-[420px] w-full rounded-lg object-cover md:h-[560px]" loading="lazy" />
           </Reveal>
         </div>
       </section>
 
-      <section className="relative min-h-[80dvh] overflow-hidden">
-        <img src="/images/grove-path.jpg" alt="Path through olive groves toward the Aegean" className="absolute inset-0 h-full w-full object-cover" />
+      <section data-defer-render className="relative min-h-[80dvh] overflow-hidden">
+        <Image src="/images/grove-path.jpg" alt="Path through olive groves toward the Aegean" fill sizes="100vw" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
         <div className="absolute inset-0 bg-[rgba(18,19,18,0.38)]" />
         <div className="relative z-[1] mx-auto flex min-h-[80dvh] w-[min(1400px,calc(100%-32px))] items-end pb-16 md:w-[min(1400px,calc(100%-48px))]">
           <h2 className="max-w-[14ch] font-display text-[clamp(40px,7vw,88px)] leading-[0.95]">Where the sea slows time.</h2>
         </div>
       </section>
 
-      <section className="py-28">
+      <section data-defer-render className="py-28">
         <div className="mx-auto w-[min(1400px,calc(100%-32px))] md:w-[min(1400px,calc(100%-48px))]">
           <Reveal>
             <h2 className="mb-12 font-display text-[clamp(36px,5vw,64px)] leading-[0.95]">Hours that do not hurry</h2>
@@ -117,7 +112,7 @@ export default function HomePage() {
             ].map(([src, title, copy, href]) => (
               <a key={title} href={href} className="group block">
                 <div className="overflow-hidden rounded-lg">
-                  <img src={src} alt={title} className="h-[340px] w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <Image src={src} alt={title} width={1200} height={800} sizes="(max-width: 768px) 100vw, 33vw" className="h-[340px] w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
                 <h3 className="mt-4 font-display text-[28px] leading-none">{title}</h3>
                 <p className="mt-2 text-ivory-soft">{copy}</p>
@@ -127,7 +122,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="pb-28">
+      <section data-defer-render className="pb-28">
         <div className="mx-auto grid w-[min(1400px,calc(100%-32px))] items-center gap-12 md:w-[min(1400px,calc(100%-48px))] md:grid-cols-2">
           <Reveal>
             <h2 className="font-display text-[clamp(36px,5vw,64px)] leading-[0.95]">Datca, a private bay</h2>
@@ -137,12 +132,12 @@ export default function HomePage() {
             </div>
           </Reveal>
           <Reveal delay={0.08}>
-            <ZoomImage src="/images/sunset.jpg" alt="Evening over the cove and stone jetty" className="h-[420px] w-full rounded-lg md:h-[560px]" onOpen={(src, alt) => setOpen({ src, alt })} />
+            <CinematicImage src="/images/sunset.jpg" alt="Evening over the cove and stone jetty" className="h-[420px] w-full rounded-lg md:h-[560px]" />
           </Reveal>
         </div>
       </section>
 
-      <section className="pb-28">
+      <section data-defer-render className="pb-28">
         <div className="mx-auto w-[min(1400px,calc(100%-32px))] md:w-[min(1400px,calc(100%-48px))]">
           <div className="mb-10 flex items-end justify-between gap-6">
             <h2 className="font-display text-[clamp(36px,5vw,64px)] leading-[0.95]">Journal</h2>
@@ -151,7 +146,7 @@ export default function HomePage() {
           <div className="grid gap-4 md:grid-cols-3">
             {(journal ?? []).slice(0, 3).map((story) => (
               <a key={story.slug} href="/journal" className="group relative block min-h-[420px] overflow-hidden rounded-lg">
-                <img src={story.image} alt={story.title} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <Image src={story.image} alt={story.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[rgba(18,19,18,0.85)] to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-6">
                   <h3 className="font-display text-[28px] leading-none">{story.title}</h3>
@@ -162,8 +157,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      <Lightbox src={open?.src ?? null} alt={open?.alt ?? ""} onClose={() => setOpen(null)} />
     </main>
   );
 }

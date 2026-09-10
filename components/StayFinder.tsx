@@ -1,7 +1,6 @@
 "use client";
 
 import { CaretLeft, CaretRight, Minus, Plus } from "@phosphor-icons/react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import {
@@ -38,7 +37,6 @@ export function StayFinder({
   hidePackages?: boolean;
 }) {
   const router = useRouter();
-  const reduce = useReducedMotion();
   const [minDate, setMinDate] = useState("2026-01-01");
   const [checkin, setCheckin] = useState(initial?.checkin || "");
   const [checkout, setCheckout] = useState(initial?.checkout || "");
@@ -156,17 +154,12 @@ export function StayFinder({
         </div>
       )}
 
-      <AnimatePresence initial={false}>
-        {cal ? (
-          <motion.div
-            key="calendar"
-            initial={reduce ? false : { height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={reduce ? undefined : { height: 0, opacity: 0 }}
-            transition={{ duration: 0.42, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden"
-          >
-            <div className="mt-3 rounded-lg border border-ivory/10 bg-bg-2 p-3">
+      <div
+        aria-hidden={!cal}
+        className={`grid transition-[grid-template-rows,opacity] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${cal ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
+      >
+        <div className="min-h-0 overflow-hidden">
+          <div className="mt-3 rounded-lg border border-ivory/10 bg-bg-2 p-3">
               <p className="mb-2 text-[12px] text-muted">
                 {cal === "in" ? "Choose arrival" : "Choose departure"}
               </p>
@@ -205,10 +198,9 @@ export function StayFinder({
                   );
                 })}
               </div>
-            </div>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
+          </div>
+        </div>
+      </div>
       {error ? <p className="mt-2 m-0 text-[13px] text-[#e0b4a8]">{error}</p> : null}
     </div>
   );

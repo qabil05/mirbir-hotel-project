@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { X } from "@phosphor-icons/react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect } from "react";
@@ -50,16 +51,16 @@ export function Lightbox({
           >
             <X size={28} />
           </button>
-          <motion.img
-            src={src}
-            alt={alt}
+          <motion.div
             onClick={(e) => e.stopPropagation()}
             initial={reduce ? false : { opacity: 0, scale: 0.92, y: 18 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={reduce ? undefined : { opacity: 0, scale: 0.96 }}
             transition={{ type: "spring", stiffness: 220, damping: 24 }}
-            className="max-h-[90dvh] max-w-[min(1200px,100%)] object-contain"
-          />
+            className="relative h-[90dvh] w-[min(1200px,100%)]"
+          >
+            <Image src={src} alt={alt} fill sizes="(max-width: 768px) 100vw, 1200px" className="object-contain" />
+          </motion.div>
         </motion.div>
       ) : null}
     </AnimatePresence>
