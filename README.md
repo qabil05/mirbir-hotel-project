@@ -1,5 +1,7 @@
-v16 changes:
-- Mobile-only navigation handoff fix: menu now visibly exits before route navigation starts.
-- Added user-triggered low-priority route prefetching when the mobile menu opens/links are hovered.
-- Desktop UI and desktop navigation styling left unchanged.
-- Preserves v15 zero-hydration homepage finder and prior performance optimizations.
+MIRBIR v17
+
+- Fixed @phosphor-icons/react v2.1.10 TypeScript exports by using the current *Icon component names.
+- Lightbox: X -> XIcon
+- StayFinder: CaretLeft/Right, Minus, Plus -> *Icon exports
+- RoomSides: CaretLeft/Right -> *Icon exports
+- All v16 mobile navigation/performance changes preserved.

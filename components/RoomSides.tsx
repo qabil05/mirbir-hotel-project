@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import { CaretLeft, CaretRight } from "@phosphor-icons/react";
+import { CaretLeftIcon, CaretRightIcon } from "@phosphor-icons/react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
 import { Lightbox } from "./Lightbox";
@@ -69,7 +69,7 @@ export function RoomSides({
             aria-label="Previous photograph"
             className="absolute left-3 top-1/2 z-[2] grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-ivory/30 bg-[rgba(18,19,18,0.55)] text-ivory backdrop-blur-sm"
           >
-            <CaretLeft size={20} />
+            <CaretLeftIcon size={20} />
           </button>
           <button
             type="button"
@@ -77,7 +77,7 @@ export function RoomSides({
             aria-label="Next photograph"
             className="absolute right-3 top-1/2 z-[2] grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-ivory/30 bg-[rgba(18,19,18,0.55)] text-ivory backdrop-blur-sm"
           >
-            <CaretRight size={20} />
+            <CaretRightIcon size={20} />
           </button>
         </>
       ) : null}

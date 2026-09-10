@@ -1,6 +1,6 @@
 "use client";
 
-import { CaretLeft, CaretRight, Minus, Plus } from "@phosphor-icons/react";
+import { CaretLeftIcon, CaretRightIcon, MinusIcon, PlusIcon } from "@phosphor-icons/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import {
@@ -165,11 +165,11 @@ export function StayFinder({
               </p>
               <div className="mb-2 flex items-center justify-between">
                 <button type="button" className="grid h-11 w-11 place-items-center" onClick={() => setCursor((c) => (c.m === 1 ? { y: c.y - 1, m: 12 } : { y: c.y, m: c.m - 1 }))} aria-label="Previous month">
-                  <CaretLeft size={18} />
+                  <CaretLeftIcon size={18} />
                 </button>
                 <p className="m-0 font-display text-lg">{monthLabel(cursor.y, cursor.m)}</p>
                 <button type="button" className="grid h-11 w-11 place-items-center" onClick={() => setCursor((c) => (c.m === 12 ? { y: c.y + 1, m: 1 } : { y: c.y, m: c.m + 1 }))} aria-label="Next month">
-                  <CaretRight size={18} />
+                  <CaretRightIcon size={18} />
                 </button>
               </div>
               <div className="grid grid-cols-7 gap-1 text-center text-[11px] text-muted">
@@ -228,11 +228,11 @@ function GuestCount({
       </p>
       <div className="mt-1 flex items-center gap-1">
         <button type="button" className="grid h-9 w-9 place-items-center rounded-md border border-ivory/20" onClick={() => onChange(Math.max(min, value - 1))} aria-label={`Fewer ${label}`}>
-          <Minus size={14} />
+          <MinusIcon size={14} />
         </button>
         <span className="w-6 text-center font-display text-xl leading-none">{value}</span>
         <button type="button" className="grid h-9 w-9 place-items-center rounded-md border border-ivory/20" onClick={() => onChange(Math.min(max, value + 1))} aria-label={`More ${label}`}>
-          <Plus size={14} />
+          <PlusIcon size={14} />
         </button>
       </div>
     </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { X } from "@phosphor-icons/react";
+import { XIcon } from "@phosphor-icons/react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect } from "react";
 
@@ -49,7 +49,7 @@ export function Lightbox({
             className="absolute right-4 top-4 grid h-11 w-11 place-items-center text-ivory"
             onClick={onClose}
           >
-            <X size={28} />
+            <XIcon size={28} />
           </button>
           <motion.div
             onClick={(e) => e.stopPropagation()}
