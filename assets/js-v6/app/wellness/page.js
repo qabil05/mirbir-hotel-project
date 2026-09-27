@@ -1,0 +1,11 @@
+import { jsx as _jsx, jsxs as _jsxs } from "/assets/vendor-v6/react-jsx-runtime.js";
+import Image from "/assets/js-v6/shims/next-image.js";
+import { PageHero } from "/assets/js-v6/components/PageHero.js";
+import { Reveal } from "/assets/js-v6/components/Reveal.js";
+export const metadata = {
+    title: "Wellness",
+    description: "Spa, hammam, and pool at MIRBIR on the Datca peninsula.",
+};
+export default function WellnessPage() {
+    return (_jsxs("main", { id: "main", children: [_jsx(PageHero, { image: "/images/spa.jpg", alt: "Vaulted stone spa treatment room", title: "Wellness", text: "Heat, water, and the old cistern under the house." }), _jsx("section", { className: "py-24", children: _jsxs("div", { className: "mx-auto grid w-[min(1400px,calc(100%-32px))] items-center gap-12 md:w-[min(1400px,calc(100%-48px))] md:grid-cols-[1.1fr_.9fr]", children: [_jsx(Reveal, { children: _jsx(Image, { src: "/images/pool.jpg", alt: "Infinity pool at dusk", width: 1400, height: 900, sizes: "(max-width: 768px) 100vw, 50vw", className: "h-[360px] w-full rounded-lg object-cover md:h-[560px]", loading: "lazy" }) }), _jsxs(Reveal, { delay: 0.08, children: [_jsx("h2", { className: "font-display text-[clamp(36px,5vw,64px)] leading-[0.95]", children: "The hammam, the pool, the hour with no clock" }), _jsx("p", { className: "mt-5 max-w-[48ch] text-lg text-ivory-soft", children: "Treatments use olive oil, salt, and slow heat. Book a private ritual with your stay, or spend the afternoon in the water." }), _jsxs("div", { className: "mt-8 grid gap-5", children: [_jsxs("div", { className: "border-t border-ivory/10 pt-4", children: [_jsx("strong", { className: "mb-1 block text-[13px] font-normal text-bronze", children: "Hammam" }), "Private hours from 10:00 to 18:00."] }), _jsxs("div", { className: "border-t border-ivory/10 pt-4", children: [_jsx("strong", { className: "mb-1 block text-[13px] font-normal text-bronze", children: "Pool" }), "Open from first light until 21:00."] }), _jsxs("div", { className: "border-t border-ivory/10 pt-4", children: [_jsx("strong", { className: "mb-1 block text-[13px] font-normal text-bronze", children: "Movement" }), "Morning stretch on the upper terrace, weather allowing."] })] })] })] }) })] }));
+}
