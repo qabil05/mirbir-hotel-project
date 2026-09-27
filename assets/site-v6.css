@@ -568,28 +568,28 @@ body.mirbir-menu-lock {
 }
 @font-face {
   font-family: "Mirbir Display";
-  src: url("/fonts/georgia.woff2") format("woff2");
+  src: url("__MIRBIR_BASE__fonts/georgia.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Mirbir Display";
-  src: url("/fonts/georgiab.woff2") format("woff2");
+  src: url("__MIRBIR_BASE__fonts/georgiab.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Mirbir UI";
-  src: url("/fonts/calibri.woff2") format("woff2");
+  src: url("__MIRBIR_BASE__fonts/calibri.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Mirbir UI";
-  src: url("/fonts/calibrib.woff2") format("woff2");
+  src: url("__MIRBIR_BASE__fonts/calibrib.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
